@@ -1,4 +1,5 @@
 import { DataArray, OrderMenu } from "./data.js";
+import { Removeitem, cart } from "./cart.js";
 
 const Menu = document.getElementById("Menu");
 const Order = document.getElementById("order");
@@ -8,9 +9,14 @@ document.addEventListener("click", (e) => {
     let selectedItem = DataArray.filter(
       (x) => e.target.dataset.plus === x.id
     )[0];
-    OrderMenu.unshift(selectedItem);
-    console.log(OrderMenu);
+    if (OrderMenu.includes(selectedItem)) {
+      selectedItem.quantity++;
+    } else {
+      OrderMenu.unshift(selectedItem);
+    }
     Order.innerHTML = Orderhtml();
+  } else if (e.target.dataset.remove) {
+    console.log(e.target.dataset.remove);
   }
 });
 function menuHtml() {
@@ -43,8 +49,9 @@ function Orderhtml() {
       <div>
         <h3>${item.name}</h3>
         <p>${item.ingredients}</p>
-        <p>$${item.price}</p>
-      </div>
+        <p>$${item.price * item.quantity}</p>
+      </div> 
+      <p> ${item.quantity}</p>
       <button class="add-to-cart" data-remove=${item.id}>Remove</button>
     </div>
   `;
