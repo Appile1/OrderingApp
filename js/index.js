@@ -1,8 +1,8 @@
 import { DataArray, OrderMenu } from "./data.js";
-import { Removeitem, cart } from "./cart.js";
+import { Removeitem } from "./cart.js";
 
 const Menu = document.getElementById("Menu");
-const Order = document.getElementById("order");
+const Order = document.getElementById("order-html");
 
 document.addEventListener("click", (e) => {
   if (e.target.dataset.plus) {
