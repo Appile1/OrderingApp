@@ -1,5 +1,4 @@
 import { DataArray, OrderMenu } from "./data.js";
-import { Removeitem } from "./cart.js";
 
 const Menu = document.getElementById("Menu");
 const Order = document.getElementById("order-html");
@@ -22,9 +21,12 @@ document.addEventListener("click", (e) => {
     if (selectedItem.quantity > 1) {
       selectedItem.quantity--;
     } else {
-      Removeitem(selectedItem.id);
+      // Removeitem(selectedItem.id);
+      console.log("Removed");
     }
     Orderhtml();
+  } else if (e.target.id === "complete-order") {
+    console.log("Order Completed");
   }
 });
 function menuHtml() {
@@ -64,5 +66,21 @@ function Orderhtml() {
     </div>
   `;
   }).join("");
+  let total = OrderMenu.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+  document.getElementById(
+    "total"
+  ).innerHTML = `<div class="total"> <p> Total : $${total.toFixed(2)}</p>
+  <button id="complete-order">Confirm Order</button>
+  </div>`;
   Order.innerHTML = Html;
+}
+
+function Removeitem(id) {
+  let Newcart = OrderMenu.filter((x) => {
+    return x.id !== id;
+  });
+  OrderMenu = Newcart;
 }
