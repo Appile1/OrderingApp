@@ -14,13 +14,21 @@ document.addEventListener("click", (e) => {
     } else {
       OrderMenu.unshift(selectedItem);
     }
-    Order.innerHTML = Orderhtml();
+    Orderhtml();
   } else if (e.target.dataset.remove) {
-    console.log(e.target.dataset.remove);
+    let selectedItem = OrderMenu.filter(
+      (x) => e.target.dataset.remove === x.id
+    )[0];
+    if (selectedItem.quantity > 1) {
+      selectedItem.quantity--;
+    } else {
+      Removeitem(selectedItem.id);
+    }
+    Orderhtml();
   }
 });
 function menuHtml() {
-  return DataArray.map((item) => {
+  let Html = DataArray.map((item) => {
     return `
         <div class="menu-item">
           <div class="icon">
@@ -35,12 +43,12 @@ function menuHtml() {
         </div>
       `;
   }).join("");
+  Menu.innerHTML = Html;
 }
-
-Menu.innerHTML = menuHtml();
+menuHtml();
 
 function Orderhtml() {
-  return OrderMenu.map((item) => {
+  let Html = OrderMenu.map((item) => {
     return `
      <div class="menu-item">
       <div class="icon">
@@ -56,4 +64,5 @@ function Orderhtml() {
     </div>
   `;
   }).join("");
+  Order.innerHTML = Html;
 }
