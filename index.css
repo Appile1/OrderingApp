@@ -57,10 +57,9 @@ header h1 {
   font-size: 1.6em;
 }
 
-.icon {
+.icon-menu {
   /* align-self: center; */
-  width: 40px;
-  height: 40px;
+  font-size: 2em;
 }
 
 .model {
