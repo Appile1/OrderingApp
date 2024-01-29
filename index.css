@@ -86,6 +86,7 @@ header h1 {
 }
 .model input {
   padding: 0.5em 1em;
+  margin-bottom: 1em;
 }
 .input {
   display: flex;
@@ -100,9 +101,47 @@ header h1 {
   font-weight: bold;
   font-size: 1em;
   color: white;
-  background-color: green;
+  background-color: #16db99;
 }
 .remove {
   padding: 0.4em;
   font-weight: bold;
+  opacity: 0.5;
+}
+
+/* .border{
+
+} */
+
+.line {
+  margin-bottom: 1.5em;
+  border-bottom: 2px solid black;
+  align-self: stretch;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+.total {
+  margin: 0 auto;
+}
+.text {
+  font-size: 1.3em;
+}
+#complete-order {
+  margin: 0 auto;
+  margin-top: 1em;
+  align-self: stretch;
+  justify-self: stretch;
+  width: 300px;
+  padding: 0.6em 1em;
+  font-size: 1em;
+  background-color: #16db99;
+}
+.price {
+  /* Adding more specificity to ensure styles are applied */
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.ingredients {
+  margin: 0.7em 0;
 }

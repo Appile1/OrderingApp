@@ -23,11 +23,12 @@
       <div id="Menu"></div>
       <div id="order">
         <h1>Your Order :</h1>
+        <div class="line"></div>
         <div id="order-html"></div>
         <p id="total"></p>
       </div>
     </main>
-    <div id="model" class="model">
+    <form id="model" class="model">
       <h3>Enter card details</h3>
       <div class="input">
         <input type="text" name="name" required placeholder="Your Name" />
@@ -46,8 +47,8 @@
           min="0"
         />
       </div>
-      <button id="Payed">Pay</button>
-    </div>
+      <button id="Payed" type="submit">Pay</button>
+    </form>
 
     <script type="module" src="js/index.js"></script>
     <!-- Bootstrap Js -->

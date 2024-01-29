@@ -21,12 +21,21 @@ document.addEventListener("click", (e) => {
     if (selectedItem.quantity > 1) {
       selectedItem.quantity--;
     } else {
-      // Removeitem(selectedItem.id);
+      Removeitem(selectedItem.id);
       console.log("Removed");
     }
     Orderhtml();
   } else if (e.target.id === "complete-order") {
     console.log("Order Completed");
+    document.getElementById("model").classList.add("flex");
+  } else if (e.target.id === "Payed") {
+    document.getElementById("model").classList.remove("flex");
+    Order.innerHTML = `
+   <div>
+   <h2> Your Order is on the way ;) </h2>
+   </div> 
+  `;
+    document.getElementById("total").innerHTML = "";
   }
 });
 function menuHtml() {
@@ -38,7 +47,7 @@ function menuHtml() {
           </div>
           <div class="data-in-menu">
             <h3>${item.name}</h3>
-            <p>${item.ingredients}</p>
+            <p  class="ingredients" >${item.ingredients}</p>
             <p>$${item.price}</p>
           </div>
           <button class="add-to-cart" data-plus=${item.id}>+</button>
@@ -56,9 +65,9 @@ function Orderhtml() {
       <div class="icon">
         <img src=${item.img}/> 
       </div>
-      <div>
+      <div class="data-in-menu" >
         <h3>${item.name}</h3>
-        <p>${item.ingredients}</p>
+        <p class="ingredients">${item.ingredients}</p>
         <p>$${item.price * item.quantity}</p>
       </div> 
       <p> ${item.quantity}</p>
@@ -72,15 +81,15 @@ function Orderhtml() {
   );
   document.getElementById(
     "total"
-  ).innerHTML = `<div class="total"> <p> Total : $${total.toFixed(2)}</p>
+  ).innerHTML = `<div class="total"> <p> <span class="text">Total : </span> <span class="price"> $${total.toFixed(
+    2
+  )} </span></p>
   <button id="complete-order">Confirm Order</button>
   </div>`;
   Order.innerHTML = Html;
 }
 
 function Removeitem(id) {
-  let Newcart = OrderMenu.filter((x) => {
-    return x.id !== id;
-  });
-  OrderMenu = Newcart;
+  let newCart = OrderMenu.filter((x) => x.id !== id);
+  OrderMenu = newCart;
 }
