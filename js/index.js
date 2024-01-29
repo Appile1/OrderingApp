@@ -1,5 +1,5 @@
-import { DataArray, OrderMenu } from "./data.js";
-
+import { DataArray } from "./data.js";
+let OrderMenu = [];
 const Menu = document.getElementById("Menu");
 const Order = document.getElementById("order-html");
 
@@ -18,17 +18,17 @@ document.addEventListener("click", (e) => {
     let selectedItem = OrderMenu.filter(
       (x) => e.target.dataset.remove === x.id
     )[0];
+
     if (selectedItem.quantity > 1) {
       selectedItem.quantity--;
     } else {
       Removeitem(selectedItem.id);
-      console.log("Removed");
     }
     Orderhtml();
   } else if (e.target.id === "complete-order") {
-    console.log("Order Completed");
     document.getElementById("model").classList.add("flex");
   } else if (e.target.id === "Payed") {
+    e.preventDefault();
     document.getElementById("model").classList.remove("flex");
     Order.innerHTML = `
    <div>
@@ -70,7 +70,7 @@ function Orderhtml() {
         <p class="ingredients">${item.ingredients}</p>
         <p>$${item.price * item.quantity}</p>
       </div> 
-      <p> ${item.quantity}</p>
+      <p class="quantity"> ${item.quantity}</p>
       <button class="remove" data-remove=${item.id}>Remove</button>
     </div>
   `;
@@ -79,6 +79,8 @@ function Orderhtml() {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+  Order.innerHTML = Html;
+
   document.getElementById(
     "total"
   ).innerHTML = `<div class="total"> <p> <span class="text">Total : </span> <span class="price"> $${total.toFixed(
@@ -86,7 +88,12 @@ function Orderhtml() {
   )} </span></p>
   <button id="complete-order">Confirm Order</button>
   </div>`;
-  Order.innerHTML = Html;
+
+  if (OrderMenu.length === 0) {
+    document.getElementById("complete-order").disabled = true;
+  } else {
+    document.getElementById("complete-order").disabled = false;
+  }
 }
 
 function Removeitem(id) {
