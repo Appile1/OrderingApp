@@ -20,8 +20,12 @@ header h1 {
 }
 
 .menu-item {
-  width: 300px;
+  width: 500px;
   margin-bottom: 3em;
+  display: flex;
+  justify-content: space-around;
+  vertical-align: middle;
+  align-items: center;
 }
 #Menu {
   display: flex;
@@ -41,4 +45,64 @@ header h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.data-in-menu {
+  max-width: 120px;
+}
+.add-to-cart {
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+  /* align-self: center; */
+  font-size: 1.6em;
+}
+
+.icon {
+  /* align-self: center; */
+  width: 40px;
+  height: 40px;
+}
+
+.model {
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.model h3 {
+  font-size: 2em;
+}
+.flex {
+  display: flex;
+}
+.model input {
+  padding: 0.5em 1em;
+}
+.input {
+  display: flex;
+  margin-bottom: 0.7em;
+  flex-direction: column;
+}
+.model button {
+  align-self: stretch;
+  width: 80%;
+  margin: 0 auto;
+  padding: 0.8em 1em;
+  font-weight: bold;
+  font-size: 1em;
+  color: white;
+  background-color: green;
+}
+.remove {
+  padding: 0.4em;
+  font-weight: bold;
 }

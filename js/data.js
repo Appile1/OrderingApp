@@ -6,6 +6,7 @@ export const DataArray = [
     price: 14,
     emoji: "🍕",
     quantity: 1,
+    img: "../images/pizza.png",
   },
   {
     name: "Hamburger",
@@ -14,6 +15,7 @@ export const DataArray = [
     emoji: "🍔",
     id: "1",
     quantity: 1,
+    img: "../images/burger.png",
   },
   {
     name: "Biryani",
@@ -22,6 +24,7 @@ export const DataArray = [
     emoji: "🥘",
     id: "2",
     quantity: 1,
+    img: "../images/biryani.webp",
   },
 ];
 

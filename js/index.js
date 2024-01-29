@@ -34,9 +34,9 @@ function menuHtml() {
     return `
         <div class="menu-item">
           <div class="icon">
-            ${item.emoji}
+          <img src=${item.img}/> 
           </div>
-          <div>
+          <div class="data-in-menu">
             <h3>${item.name}</h3>
             <p>${item.ingredients}</p>
             <p>$${item.price}</p>
@@ -54,7 +54,7 @@ function Orderhtml() {
     return `
      <div class="menu-item">
       <div class="icon">
-        ${item.emoji}
+        <img src=${item.img}/> 
       </div>
       <div>
         <h3>${item.name}</h3>
@@ -62,7 +62,7 @@ function Orderhtml() {
         <p>$${item.price * item.quantity}</p>
       </div> 
       <p> ${item.quantity}</p>
-      <button class="add-to-cart" data-remove=${item.id}>Remove</button>
+      <button class="remove" data-remove=${item.id}>Remove</button>
     </div>
   `;
   }).join("");

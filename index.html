@@ -27,7 +27,28 @@
         <p id="total"></p>
       </div>
     </main>
-    <div id="model"></div>
+    <div id="model" class="model">
+      <h3>Enter card details</h3>
+      <div class="input">
+        <input type="text" name="name" required placeholder="Your Name" />
+        <input
+          type="number"
+          name="Card-number"
+          required
+          placeholder="Card Number"
+          min="0"
+        />
+        <input
+          type="number"
+          name="CVV-number"
+          required
+          placeholder="CVV Number"
+          min="0"
+        />
+      </div>
+      <button id="Payed">Pay</button>
+    </div>
+
     <script type="module" src="js/index.js"></script>
     <!-- Bootstrap Js -->
     <!-- <script
